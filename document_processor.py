@@ -24,7 +24,7 @@ def load_document(file_path: str) -> List[Document]:
         text = soup.get_text(separator="\n", strip=True)
         docs = [Document(page_content=text, metadata={"source": name})]
     elif ext == ".csv":
-    docs = CSVLoader(file_path, encoding="utf-8").load()
+        docs = CSVLoader(file_path, encoding="utf-8").load()
     else:
         raise ValueError(f"Unsupported format: {ext}")
 
