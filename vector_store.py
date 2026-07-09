@@ -11,7 +11,7 @@ COLLECTION_NAME = "enterprise_rag"
 
 
 def get_embeddings():
-    return GoogleGenerativeAIEmbeddings(model="models/text-embedding-005")
+    return GoogleGenerativeAIEmbeddings(model="models/gemini-embedding-001")
 
 
 def get_vector_store():
