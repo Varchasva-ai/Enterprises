@@ -1,5 +1,5 @@
 from typing import List
-
+import time
 import chromadb
 from langchain_core.documents import Document
 from langchain_chroma import Chroma
@@ -8,22 +8,23 @@ from langchain_google_genai import GoogleGenerativeAIEmbeddings
 # Use relative path so it works on Streamlit Cloud
 CHROMA_PATH = "./chroma_db"
 COLLECTION_NAME = "enterprise_rag"
-
-
 def get_embeddings():
     return GoogleGenerativeAIEmbeddings(model="models/gemini-embedding-001")
-
-
 def get_vector_store():
     return Chroma(
         collection_name=COLLECTION_NAME,
         embedding_function=get_embeddings(),
         persist_directory=CHROMA_PATH,
     )
-
-
 def add_documents_to_store(chunks: List[Document]) -> int:
-    get_vector_store().add_documents(chunks)
+    vector_store = get_vector_store()
+    batch_size = 20  # Processes 20 chunks at a time
+    
+    for i in range(0, len(chunks), batch_size):
+        batch = chunks[i:i + batch_size]
+        vector_store.add_documents(batch)
+        time.sleep(1)  # 1-second pause to prevent rate-limiting
+        
     return len(chunks)
 
 
