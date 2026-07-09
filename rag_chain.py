@@ -2,7 +2,7 @@ from typing import List, Tuple
 
 from langchain_classic.chains import ConversationalRetrievalChain
 from langchain_classic.memory import ConversationBufferMemory
-from langchain.prompts import PromptTemplate
+from langchain_core.prompts import PromptTemplate
 from langchain_core import Document
 from langchain_google_genai import ChatGoogleGenerativeAI
 
