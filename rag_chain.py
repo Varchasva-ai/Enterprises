@@ -3,7 +3,7 @@ from typing import List, Tuple
 from langchain.chains import ConversationalRetrievalChain
 from langchain.memory import ConversationBufferMemory
 from langchain.prompts import PromptTemplate
-from langchain.schema import Document
+from langchain_core import Document
 from langchain_google_genai import ChatGoogleGenerativeAI
 
 from vector_store import get_retriever
