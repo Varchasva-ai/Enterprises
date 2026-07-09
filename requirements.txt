@@ -1,5 +1,5 @@
 streamlit
-langchain
+langchain-core>=0.1.0
 langchain-community
 langchain-google-genai
 langchain-chroma
