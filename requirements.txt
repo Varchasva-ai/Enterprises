@@ -8,3 +8,4 @@ google-generativeai
 pypdf
 docx2txt
 beautifulsoup4
+langchain-text-splitters
