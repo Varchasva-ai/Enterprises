@@ -1,7 +1,7 @@
 from typing import List
 
 import chromadb
-from langchain_core import Document
+from langchain_core.documents import Document
 from langchain_chroma import Chroma
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
 
