@@ -9,7 +9,7 @@ from langchain_google_genai import GoogleGenerativeAIEmbeddings
 CHROMA_PATH = "./chroma_db"
 COLLECTION_NAME = "enterprise_rag"
 def get_embeddings():
-    return GoogleGenerativeAIEmbeddings(model="models/gemini-embedding-001")
+    return GoogleGenerativeAIEmbeddings(model="models/gemini-embedding-002")
 def get_vector_store():
     return Chroma(
         collection_name=COLLECTION_NAME,
