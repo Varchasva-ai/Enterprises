@@ -4,7 +4,7 @@ from typing import List, Tuple
 
 from langchain_core.documents import Document
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-from langchain_community.document_loaders import PyPDFLoader, Docx2txtLoader, TextLoader
+from langchain_community.document_loaders import PyPDFLoader, Docx2txtLoader, TextLoader , CSVLoader
 
 
 def load_document(file_path: str) -> List[Document]:
@@ -23,6 +23,9 @@ def load_document(file_path: str) -> List[Document]:
             soup = BeautifulSoup(f.read(), "html.parser")
         text = soup.get_text(separator="\n", strip=True)
         docs = [Document(page_content=text, metadata={"source": name})]
+    elif ext == ".csv":
+    loader = CSVLoader(file_path, encoding="utf-8")
+    docs = loader.load()
     else:
         raise ValueError(f"Unsupported format: {ext}")
 
