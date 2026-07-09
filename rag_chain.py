@@ -30,7 +30,7 @@ Answer:""",
 def build_rag_chain() -> ConversationalRetrievalChain:
     llm = ChatGoogleGenerativeAI(
         model="gemini-1.5-flash",
-        temperature=0.2,
+        temperature=0.5,
         convert_system_message_to_human=True,
     )
     memory = ConversationBufferMemory(
